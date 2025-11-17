@@ -37,6 +37,9 @@ export default function Home() {
             <Link href="/warnings" className="text-foreground hover:text-primary transition-colors">
               العقوبات والتحذيرات
             </Link>
+            <Link href="/safe-zones" className="text-foreground hover:text-primary transition-colors">
+              المناطق الآمنة
+            </Link>
           </div>
         </div>
       </nav>

@@ -9,6 +9,7 @@ import GeneralLaws from "./pages/GeneralLaws";
 import TheftLaws from "./pages/TheftLaws";
 import CrimeLaws from "./pages/CrimeLaws";
 import Warnings from "./pages/Warnings";
+import SafeZones from "./pages/SafeZones";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path={"/theft-laws"} component={TheftLaws} />
       <Route path={"/crime-laws"} component={CrimeLaws} />
       <Route path={"/warnings"} component={Warnings} />
+      <Route path={"/safe-zones"} component={SafeZones} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
