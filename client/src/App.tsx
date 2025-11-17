@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import GeneralLaws from "./pages/GeneralLaws";
 import TheftLaws from "./pages/TheftLaws";
 import CrimeLaws from "./pages/CrimeLaws";
+import Warnings from "./pages/Warnings";
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
       <Route path={"/general-laws"} component={GeneralLaws} />
       <Route path={"/theft-laws"} component={TheftLaws} />
       <Route path={"/crime-laws"} component={CrimeLaws} />
+      <Route path={"/warnings"} component={Warnings} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

@@ -21,7 +21,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="border-b border-border bg-card">
         <div className="container">
-          <div className="flex gap-6 py-4">
+          <div className="flex gap-6 py-4 flex-wrap">
             <Link href="/" className="text-primary font-semibold hover:text-accent transition-colors">
               الرئيسية
             </Link>
@@ -33,6 +33,9 @@ export default function Home() {
             </Link>
             <Link href="/crime-laws" className="text-foreground hover:text-primary transition-colors">
               قوانين الإجرام
+            </Link>
+            <Link href="/warnings" className="text-foreground hover:text-primary transition-colors">
+              العقوبات والتحذيرات
             </Link>
           </div>
         </div>

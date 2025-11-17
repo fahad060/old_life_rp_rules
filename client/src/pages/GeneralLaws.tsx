@@ -31,6 +31,9 @@ export default function GeneralLaws() {
             <Link href="/theft-laws" className="text-foreground hover:text-primary transition-colors">
               قوانين السرقات
             </Link>
+            <Link href="/warnings" className="text-foreground hover:text-primary transition-colors">
+              العقوبات والتحذيرات
+            </Link>
             <Link href="/crime-laws" className="text-foreground hover:text-primary transition-colors">
               قوانين الإجرام
             </Link>
