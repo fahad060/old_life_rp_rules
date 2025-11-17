@@ -40,6 +40,9 @@ export default function Home() {
             <Link href="/safe-zones" className="text-foreground hover:text-primary transition-colors">
               المناطق الآمنة
             </Link>
+            <Link href="/discord-rules" className="text-foreground hover:text-primary transition-colors">
+              قوانين الديسكورد
+            </Link>
           </div>
         </div>
       </nav>
