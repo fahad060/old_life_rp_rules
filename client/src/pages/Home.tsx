@@ -4,6 +4,51 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 export default function Home() {
+  const pages = [
+    {
+      title: "القوانين العامة",
+      description: "تعرف على القوانين الأساسية والعامة التي تحكم حياتك اليومية في السيرفر",
+      icon: "⚖️",
+      href: "/general-laws",
+    },
+    {
+      title: "تسلسل السرقات",
+      description: "اطلع على قوانين السرقات المختلفة والحدود المسموح بها لكل سرقة",
+      icon: "🔓",
+      href: "/theft-laws",
+    },
+    {
+      title: "قوانين الإجرام",
+      description: "تعرف على القوانين المتعلقة بالجرائم والعمليات الإجرامية والعقوبات",
+      icon: "⚔️",
+      href: "/crime-laws",
+    },
+    {
+      title: "العقوبات والتحذيرات",
+      description: "اطلع على نظام العقوبات والتحذيرات وفترات الحظر المختلفة",
+      icon: "⚠️",
+      href: "/warnings",
+    },
+    {
+      title: "المناطق الآمنة",
+      description: "تعرف على المناطق الآمنة وغير الآمنة والقوانين المتعلقة بها",
+      icon: "🛡️",
+      href: "/safe-zones",
+    },
+    {
+      title: "قوانين الديسكورد",
+      description: "اطلع على قوانين السلوك والاحترام على خادم الديسكورد",
+      icon: "💬",
+      href: "/discord-rules",
+    },
+    {
+      title: "قوانين العداوة",
+      description: "تعرف على شروط وقيود إعلان العداوة بين اللاعبين",
+      icon: "⚡",
+      href: "/enemy-rules",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
@@ -29,7 +74,7 @@ export default function Home() {
               القوانين العامة
             </Link>
             <Link href="/theft-laws" className="text-foreground hover:text-primary transition-colors">
-              قوانين السرقات
+              تسلسل السرقات
             </Link>
             <Link href="/crime-laws" className="text-foreground hover:text-primary transition-colors">
               قوانين الإجرام
@@ -52,7 +97,7 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="container py-12">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-primary">مرحباً بك في سيرفر Old Life RP</h2>
             <p className="text-lg text-muted-foreground mb-8">
@@ -60,61 +105,26 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Laws Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* General Laws Card */}
-            <Card className="bg-card border-border hover:shadow-lg transition-shadow">
-              <div className="p-6">
-                <div className="mb-4 h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <span className="text-2xl text-primary">⚖️</span>
+          {/* Laws Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pages.map((page, index) => (
+              <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
+                <div className="p-6">
+                  <div className="mb-4 h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center">
+                    <span className="text-2xl">{page.icon}</span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-foreground">{page.title}</h3>
+                  <p className="text-muted-foreground mb-4">
+                    {page.description}
+                  </p>
+                  <Link href={page.href}>
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+                      اقرأ المزيد
+                    </Button>
+                  </Link>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-foreground">القوانين العامة</h3>
-                <p className="text-muted-foreground mb-4">
-                  تعرف على القوانين الأساسية والعامة التي تحكم حياتك اليومية في السيرفر
-                </p>
-                <Link href="/general-laws">
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                    اقرأ المزيد
-                  </Button>
-                </Link>
-              </div>
-            </Card>
-
-            {/* Theft Laws Card */}
-            <Card className="bg-card border-border hover:shadow-lg transition-shadow">
-              <div className="p-6">
-                <div className="mb-4 h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <span className="text-2xl text-primary">🔓</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-foreground">قوانين السرقات</h3>
-                <p className="text-muted-foreground mb-4">
-                  اطلع على القوانين المتعلقة بالسرقات والعقوبات المترتبة عليها
-                </p>
-                <Link href="/theft-laws">
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                    اقرأ المزيد
-                  </Button>
-                </Link>
-              </div>
-            </Card>
-
-            {/* Crime Laws Card */}
-            <Card className="bg-card border-border hover:shadow-lg transition-shadow">
-              <div className="p-6">
-                <div className="mb-4 h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <span className="text-2xl text-primary">⚔️</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-foreground">قوانين الإجرام</h3>
-                <p className="text-muted-foreground mb-4">
-                  تعرف على القوانين المتعلقة بالجرائم والعقوبات الصارمة
-                </p>
-                <Link href="/crime-laws">
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                    اقرأ المزيد
-                  </Button>
-                </Link>
-              </div>
-            </Card>
+              </Card>
+            ))}
           </div>
         </div>
       </main>
