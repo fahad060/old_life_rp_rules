@@ -4,6 +4,75 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 export default function TheftLaws() {
+  const robberies = [
+    {
+      name: "الصراف الألي / ATM",
+      min: 1,
+      max: 2,
+      escape: "الهروب فوري",
+    },
+    {
+      name: "البقالة / Market",
+      min: 2,
+      max: 3,
+      escape: "الهروب بعد 3 دقائق",
+    },
+    {
+      name: "الحلاق / The Barber",
+      min: 2,
+      max: 4,
+      escape: "الهروب بعد 3 دقائق",
+    },
+    {
+      name: "متجر الأزياء / Clothe Store",
+      min: 2,
+      max: 4,
+      escape: "الهروب بعد 4 دقائق",
+    },
+    {
+      name: "متجر الوشوم / Tattoo Shop",
+      min: 2,
+      max: 4,
+      escape: "الهروب بعد 4 دقائق",
+    },
+    {
+      name: "حانة ساندي شور / Sandy Shore Bar",
+      min: 3,
+      max: 5,
+      escape: "الهروب بعد 4 دقائق",
+    },
+    {
+      name: "متجر الأسلحة / Weapons Store",
+      min: 3,
+      max: 6,
+      escape: "الهروب بعد 5 دقائق",
+    },
+    {
+      name: "السجن المركزي / Central Prison Assault",
+      min: 6,
+      max: 12,
+      escape: "الهروب فوري",
+    },
+    {
+      name: "ورشة / Work Shop",
+      min: 5,
+      max: 8,
+      escape: "الهروب بعد 8 دقائق",
+    },
+    {
+      name: "ورشة بينز / Bennys Work Shop",
+      min: 6,
+      max: 9,
+      escape: "الهروب بعد 9 دقائق",
+    },
+    {
+      name: "البنك المركزي",
+      min: 8,
+      max: 10,
+      escape: "الهروب بعد 12 دقائق",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
@@ -21,7 +90,7 @@ export default function TheftLaws() {
       {/* Navigation */}
       <nav className="border-b border-border bg-card">
         <div className="container">
-          <div className="flex gap-6 py-4">
+          <div className="flex gap-6 py-4 flex-wrap">
             <Link href="/" className="text-foreground hover:text-primary transition-colors">
               الرئيسية
             </Link>
@@ -29,13 +98,22 @@ export default function TheftLaws() {
               القوانين العامة
             </Link>
             <Link href="/theft-laws" className="text-primary font-semibold hover:text-accent transition-colors">
-              قوانين السرقات
+              تسلسل السرقات
+            </Link>
+            <Link href="/crime-laws" className="text-foreground hover:text-primary transition-colors">
+              قوانين الإجرام
             </Link>
             <Link href="/warnings" className="text-foreground hover:text-primary transition-colors">
               العقوبات والتحذيرات
             </Link>
-            <Link href="/crime-laws" className="text-foreground hover:text-primary transition-colors">
-              قوانين الإجرام
+            <Link href="/safe-zones" className="text-foreground hover:text-primary transition-colors">
+              المناطق الآمنة
+            </Link>
+            <Link href="/discord-rules" className="text-foreground hover:text-primary transition-colors">
+              قوانين الديسكورد
+            </Link>
+            <Link href="/enemy-rules" className="text-foreground hover:text-primary transition-colors">
+              قوانين العداوة
             </Link>
           </div>
         </div>
@@ -43,83 +121,88 @@ export default function TheftLaws() {
 
       {/* Main Content */}
       <main className="container py-12">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8 text-primary">قوانين السرقات</h2>
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-4xl font-bold mb-8 text-primary">تسلسل السرقات</h2>
 
-          {/* Laws List */}
-          <div className="space-y-6">
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">1. السرقة البسيطة</h3>
-              <p className="text-foreground mb-2">
-                سرقة الأشياء الصغيرة والبسيطة من المتاجر أو المنازل.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> غرامة مالية من 500 إلى 2000 دولار أو السجن من 5 إلى 10 دقائق</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>سرقة الملابس والإكسسوارات</li>
-                <li>سرقة الأغراض الشخصية البسيطة</li>
-                <li>السرقة من المتاجر الصغيرة</li>
-              </ul>
-            </Card>
+          {/* Rules Section */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold mb-6 text-primary">القواعد العامة</h3>
+            <div className="space-y-4">
+              <Card className="bg-card border-border p-6">
+                <div className="flex items-start gap-3">
+                  <span className="text-primary font-bold text-lg min-w-fit">[ 1 ]</span>
+                  <p className="text-foreground">الأولوية / الجريدة هو المكان الذي يتم توضيح الجرائم المسموحة تناسباً مع عدد العسكر المباشرين للميدان</p>
+                </div>
+              </Card>
 
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">2. السرقة المؤهلة</h3>
-              <p className="text-foreground mb-2">
-                سرقة أشياء ذات قيمة عالية أو من أماكن محمية.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> غرامة مالية من 5000 إلى 15000 دولار أو السجن من 15 إلى 30 دقيقة</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>سرقة المجوهرات والذهب</li>
-                <li>سرقة الأسلحة والذخيرة</li>
-                <li>سرقة من البنوك والمحلات الكبرى</li>
-              </ul>
-            </Card>
+              <Card className="bg-card border-border p-6">
+                <div className="flex items-start gap-3">
+                  <span className="text-primary font-bold text-lg min-w-fit">[ 2 ]</span>
+                  <p className="text-foreground">التدخل الخارجي يُمنع أن يكون من أشخاص خارج السيناريو بمعنى يحسب من ضمن العدد المسموح لك فيه بالسرقة</p>
+                </div>
+              </Card>
 
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">3. سرقة السيارات</h3>
-              <p className="text-foreground mb-2">
-                سرقة المركبات والسيارات من الشارع أو من المواقف.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> غرامة مالية من 10000 إلى 25000 دولار أو السجن من 30 إلى 60 دقيقة</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>سرقة السيارات المركونة</li>
-                <li>سرقة الدراجات النارية</li>
-                <li>سرقة الشاحنات والمركبات الثقيلة</li>
-              </ul>
-            </Card>
+              <Card className="bg-card border-border p-6">
+                <div className="flex items-start gap-3">
+                  <span className="text-primary font-bold text-lg min-w-fit">[ 3 ]</span>
+                  <p className="text-foreground">العلامة الخضراء أمام اسم السرقة تعني أنها مسموحة والعكس مع العلامة الحمراء</p>
+                </div>
+              </Card>
 
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">4. السطو المسلح</h3>
-              <p className="text-foreground mb-2">
-                السرقة بالقوة أو التهديد باستخدام الأسلحة.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> غرامة مالية من 15000 إلى 50000 دولار أو السجن من 45 إلى 120 دقيقة</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>السطو على المتاجر</li>
-                <li>السطو على البنوك</li>
-                <li>السطو على الأفراد في الشارع</li>
-              </ul>
-            </Card>
+              <Card className="bg-card border-border p-6">
+                <div className="flex items-start gap-3">
+                  <span className="text-primary font-bold text-lg min-w-fit">[ 4 ]</span>
+                  <p className="text-foreground">الأولوية تُعرض هنا # فقط</p>
+                </div>
+              </Card>
 
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">5. الحد من السرقة</h3>
-              <p className="text-foreground mb-2">
-                إجراءات الحماية والوقاية من السرقات.
-              </p>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>تركيب الأقفال والأنظمة الأمنية</li>
-                <li>الإبلاغ الفوري عن السرقات</li>
-                <li>التعاون مع الشرطة في التحقيقات</li>
-                <li>الحفاظ على الأشياء الثمينة في أماكن آمنة</li>
-              </ul>
-            </Card>
+              <Card className="bg-card border-border p-6">
+                <div className="flex items-start gap-3">
+                  <span className="text-primary font-bold text-lg min-w-fit">[ 5 ]</span>
+                  <p className="text-foreground">في حال تأخر العسكر المدة الموضحة بالأسفل من بعد نجاح السرقة يسمح لك بمغادرة موقع السرقة</p>
+                </div>
+              </Card>
+
+              <Card className="bg-card border-border p-6">
+                <div className="flex items-start gap-3">
+                  <span className="text-primary font-bold text-lg min-w-fit">[ 6 ]</span>
+                  <p className="text-foreground">يُمنع وضع (Ghost / Off Radar) أثناء عملية السرقة ويسمح بها فقط وقت الهروب</p>
+                </div>
+              </Card>
+            </div>
+          </div>
+
+          {/* Robberies Section */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold mb-6 text-primary">تسلسل السرقات</h3>
+            <div className="space-y-4">
+              {robberies.map((robbery, index) => (
+                <Card key={index} className="bg-card border-border p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold mb-3 text-foreground">{robbery.name}</h4>
+                      <div className="space-y-2 text-muted-foreground">
+                        <p className="flex items-center gap-2">
+                          <span className="text-primary font-bold">الحد الأدنى:</span>
+                          <span className="text-foreground font-semibold">{robbery.min}</span>
+                        </p>
+                        <p className="flex items-center gap-2">
+                          <span className="text-primary font-bold">الحد الأقصى:</span>
+                          <span className="text-foreground font-semibold">{robbery.max}</span>
+                        </p>
+                        <p className="flex items-center gap-2">
+                          <span className="text-primary font-bold">وقت الهروب:</span>
+                          <span className="text-foreground font-semibold">{robbery.escape}</span>
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <span className="text-4xl text-primary">✓</span>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
           </div>
 
           {/* Back Button */}
