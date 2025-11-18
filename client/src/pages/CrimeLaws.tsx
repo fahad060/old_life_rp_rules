@@ -4,6 +4,58 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 export default function CrimeLaws() {
+  const crimes = [
+    "إذا تم اختطاف رهينة لديك فقط 15 دقيقة لتنفيذ السيناريو. في حال انتهاء المدة ولم يتم بدء أي سيناريو يجب فك سراح الرهينة",
+    "يُمنع تبادل الرهائن بين العصابات والأشخاص أثناء سيناريو قائم",
+    "في حال تم خطف رهينة يجب الذهاب لموقع التفاوض على الفور وعدم المماطلة",
+    "يجب على المخطوف تقمص دور الخوف والخوف على حياته",
+    "يجب أن يكون التهديد بشكل مباشر ولا يسمح لك التهديد بداخل المركبات",
+    "يُمنع الإهانة بأي شكل من الأشكال",
+    "في حال اختطفت يجب عليك الاستماع لأوامر الخاطف",
+    "يُمنع كلبشة شخص إلا إذا كان بالقرب منك وأن تكون خلفه وكتابة أمر ( -كلبشة @منشن الشخص )",
+    "يحق للرهينة الهروب في حال وجدت فرصة وفي حال لم يكن الخاطف متواجد وغير منتبه",
+    "في حال المواطن متعاون معك لا يحق لك قتله تحت أي ظرف كان. في حال عدم الانصياع يحق لك قتله",
+    "يُمنع قتل أي شخص لسبب تافه أو لأجل أمر شخصي",
+    "الحد الأقصى لطلب تحرير الرهينة هو ( 5000$ ) ويكون التسليم يد بيد",
+    "يجب عليك قبل بداية أي سرقة أو عمل إجرامي التخطيط لها ووضع هدف لها وتدخل خارجي إذا وجد",
+    "يُمنع الاعتداء على المفاوض",
+    "يُمنع التفاوض على رهينة وهي ليست بالموقع أو قرب الموقع",
+    "يُمنع الاتفاق مع الرهينة منعاً باتاً",
+    "يُمنع قتل الرهينة لسبب ( تافه )",
+    "يُمنع إرسال طلب ( عسكري، تاكسي، والخ ) لغرض خطفه أو تهديده أو لأي عمل إجرامي",
+    "حد أفراد العصابة داخل الرحلة ( 8 ) أشخاص فقط",
+    "حد المجموعات أو العائلات المسموح فقط 10 أشخاص",
+    "يُمنع تحالف العصابات ضد الشرطة أو ضد عصابة أخرى",
+    "في حال تم استيقافك مرورياً يُمنع إطلاق النار",
+    "يُمنع تقليد ملابس العصابات",
+    "يُمنع الخطف والتهديد في حال وجود مواطن أو مدني",
+    "يُمنع إهانة الرهينة ويجب التعامل معه بما يحدث ولا يتم الضغط عليه",
+    "لا يسمح إطلاق النار العشوائي لغرض جذب العسكر",
+    "يُمنع استعمال الحبة",
+    "يُمنع خطف عسكري في حالة استيقاف مروري",
+    "يجب عليك ارتداء قناع أو وشاح أثناء أي عملية إجرامية",
+    "يُمنع محاولة تسبب لعداوة بأي طريقة كانت",
+    "يُمنع افتعال فايت بدون سبب",
+    "لا تعتبر الرهينة مخطوفة في حال لم تتم كلبشته ويحق له الهروب في حال عدم انتباه الخاطف له",
+    "يُمنع عليك استخراج السلاح إلا في المواقف الخطرة",
+    "يُمنع منعاً باتاً خطف رهينة بغاية التوجه للسجن والتفاوض مع العساكر لإطلاق سراح أي سجين",
+    "يُمنع على أي فرد أو جماعة السرقة ثم الانتظار لفترة في نفس الموقع سواء للتفاوض أو غيره",
+    "يُمنع منعاً باتاً طلب على الرهينة أي مبلغ مادي ويحق لك طلب واحد على كل رهينة",
+    "أثناء عملية النصب يُمنع منعاً باتاً الحلف مهما كان السبب",
+    "لا يحق لك قتل الشخص بعد أن تنصب عليه بحجة النسيان",
+    "في حال نصب عليك شخص يحق لك قتله بشكل مباشر وأخذ الغرض الذي تم الاتفاق عليه ولا يحق لك أخذ أي غرض ثاني أو يحق لك أخذ شيء بنفس القيمة",
+    "يُمنع منعاً باتاً سرقة السيارات الخاصة بأي شكل من الأشكال",
+    "يُمنع منعاً باتاً سرقة الهيلي بأي شكل من الأشكال",
+  ];
+
+  const robberyLimits = [
+    { name: "ATM Robbery", min: 1, max: 2 },
+    { name: "Store Robbery", min: 2, max: 4 },
+    { name: "House Robbery", min: 3, max: 5 },
+    { name: "Jewellery Robbery", min: 5, max: 7 },
+    { name: "Fleeca Robbery", min: 5, max: 9 },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
@@ -21,7 +73,7 @@ export default function CrimeLaws() {
       {/* Navigation */}
       <nav className="border-b border-border bg-card">
         <div className="container">
-          <div className="flex gap-6 py-4">
+          <div className="flex gap-6 py-4 flex-wrap">
             <Link href="/" className="text-foreground hover:text-primary transition-colors">
               الرئيسية
             </Link>
@@ -29,10 +81,22 @@ export default function CrimeLaws() {
               القوانين العامة
             </Link>
             <Link href="/theft-laws" className="text-foreground hover:text-primary transition-colors">
-              قوانين السرقات
+              تسلسل السرقات
             </Link>
             <Link href="/crime-laws" className="text-primary font-semibold hover:text-accent transition-colors">
               قوانين الإجرام
+            </Link>
+            <Link href="/warnings" className="text-foreground hover:text-primary transition-colors">
+              العقوبات والتحذيرات
+            </Link>
+            <Link href="/safe-zones" className="text-foreground hover:text-primary transition-colors">
+              المناطق الآمنة
+            </Link>
+            <Link href="/discord-rules" className="text-foreground hover:text-primary transition-colors">
+              قوانين الديسكورد
+            </Link>
+            <Link href="/enemy-rules" className="text-foreground hover:text-primary transition-colors">
+              قوانين العداوة
             </Link>
           </div>
         </div>
@@ -40,130 +104,48 @@ export default function CrimeLaws() {
 
       {/* Main Content */}
       <main className="container py-12">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-bold mb-8 text-primary">قوانين الإجرام</h2>
 
-          {/* Laws List */}
-          <div className="space-y-6">
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">1. الاعتداء والضرب</h3>
-              <p className="text-foreground mb-2">
-                أي اعتداء جسدي على شخص آخر أو إلحاق الأذى به.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> غرامة مالية من 1000 إلى 5000 دولار أو السجن من 10 إلى 20 دقيقة</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>الضرب البسيط</li>
-                <li>الاعتداء بأسلحة</li>
-                <li>إلحاق إصابات خطيرة</li>
-              </ul>
-            </Card>
+          {/* Crime Laws */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold mb-6 text-primary">قوانين العمليات الإجرامية</h3>
+            <div className="space-y-3">
+              {crimes.map((crime, index) => (
+                <Card key={index} className="bg-card border-border p-4">
+                  <div className="flex items-start gap-3">
+                    <span className="text-primary font-bold text-lg min-w-fit">[ {index + 1} ]</span>
+                    <p className="text-foreground">{crime}</p>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
 
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">2. القتل</h3>
-              <p className="text-foreground mb-2">
-                إنهاء حياة شخص آخر بأي وسيلة.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> السجن من 120 إلى 300 دقيقة أو الحظر الدائم في الحالات الخطيرة</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>القتل العمد</li>
-                <li>القتل الخطأ</li>
-                <li>القتل في جريمة أخرى</li>
-              </ul>
-            </Card>
-
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">3. الاختطاف والحبس غير القانوني</h3>
-              <p className="text-foreground mb-2">
-                احتجاز شخص ضد إرادته بالقوة أو التهديد.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> غرامة مالية من 10000 إلى 30000 دولار أو السجن من 60 إلى 150 دقيقة</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>الاختطاف مقابل فدية</li>
-                <li>الحبس غير القانوني</li>
-                <li>الاحتجاز بالقوة</li>
-              </ul>
-            </Card>
-
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">4. الاغتصاب والتحرش الجنسي</h3>
-              <p className="text-foreground mb-2">
-                أي تصرف جنسي غير موافق عليه أو إجباري.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> السجن من 180 إلى 300 دقيقة أو الحظر الدائم</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>الاغتصاب</li>
-                <li>التحرش الجنسي</li>
-                <li>الإساءة الجنسية</li>
-              </ul>
-            </Card>
-
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">5. الإرهاب والتهديدات</h3>
-              <p className="text-foreground mb-2">
-                تهديد الآخرين بالعنف أو الأذى أو نشر الخوف.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> غرامة مالية من 5000 إلى 15000 دولار أو السجن من 30 إلى 90 دقيقة</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>التهديدات المباشرة</li>
-                <li>التهديدات عبر الإنترنت</li>
-                <li>نشر الخوف والذعر</li>
-              </ul>
-            </Card>
-
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">6. الاتجار بالمخدرات</h3>
-              <p className="text-foreground mb-2">
-                بيع أو توزيع المخدرات والمواد الممنوعة.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> غرامة مالية من 20000 إلى 50000 دولار أو السجن من 120 إلى 240 دقيقة</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>بيع المخدرات</li>
-                <li>توزيع المواد الممنوعة</li>
-                <li>حيازة كميات كبيرة</li>
-              </ul>
-            </Card>
-
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">7. الاحتيال والتزوير</h3>
-              <p className="text-foreground mb-2">
-                خداع الآخرين أو تزوير الوثائق للحصول على مكاسب.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> غرامة مالية من 5000 إلى 20000 دولار أو السجن من 30 إلى 60 دقيقة</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>الاحتيال المالي</li>
-                <li>تزوير الوثائق</li>
-                <li>الخداع التجاري</li>
-              </ul>
-            </Card>
-
-            <Card className="bg-card border-border p-6">
-              <h3 className="text-2xl font-bold mb-3 text-primary">8. مقاومة السلطات</h3>
-              <p className="text-foreground mb-2">
-                عدم الامتثال لأوامر الشرطة أو محاولة الهروب.
-              </p>
-              <div className="bg-background p-4 rounded-lg mb-3">
-                <p className="text-muted-foreground"><strong>العقوبة:</strong> غرامة مالية من 2000 إلى 8000 دولار أو السجن من 15 إلى 45 دقيقة</p>
-              </div>
-              <ul className="list-disc list-inside text-muted-foreground space-y-1 mr-4">
-                <li>عدم الامتثال للأوامر</li>
-                <li>محاولة الهروب من الشرطة</li>
-                <li>مقاومة القبض</li>
-              </ul>
-            </Card>
+          {/* Robbery Limits */}
+          <div className="mb-12">
+            <h3 className="text-3xl font-bold mb-6 text-primary">حدود الأشخاص المسموح بها للسرقات</h3>
+            <div className="space-y-4">
+              {robberyLimits.map((robbery, index) => (
+                <Card key={index} className="bg-card border-border p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold mb-3 text-foreground">{robbery.name}</h4>
+                      <div className="space-y-2 text-muted-foreground">
+                        <p className="flex items-center gap-2">
+                          <span className="text-primary font-bold">الحد الأدنى:</span>
+                          <span className="text-foreground font-semibold">{robbery.min}</span>
+                        </p>
+                        <p className="flex items-center gap-2">
+                          <span className="text-primary font-bold">الحد الأقصى:</span>
+                          <span className="text-foreground font-semibold">{robbery.max}</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
           </div>
 
           {/* Back Button */}
