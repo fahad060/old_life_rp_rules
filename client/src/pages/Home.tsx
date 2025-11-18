@@ -43,6 +43,9 @@ export default function Home() {
             <Link href="/discord-rules" className="text-foreground hover:text-primary transition-colors">
               قوانين الديسكورد
             </Link>
+            <Link href="/enemy-rules" className="text-foreground hover:text-primary transition-colors">
+              قوانين العداوة
+            </Link>
           </div>
         </div>
       </nav>
